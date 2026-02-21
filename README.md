@@ -95,13 +95,13 @@
 
     分支: `main`
 
-   白名单: `main.py`
+    白名单: `main.py`
 
     定时规则: `4 5 * * *`
 
-5. 运行订阅
+4. 运行订阅
 
-6. 脚本默认定时 `31 8 * * *`，即每天上午 8:31 运行
+5. 脚本默认定时 `31 8 * * *`，即每天上午 8:31 运行
 
 ### 在 Linux 中独立运行（使用 `crontab` 配置定时任务）
 
@@ -112,7 +112,7 @@
     cd skyland_auto_checkin
     ```
 
-3. 创建虚拟环境并安装依赖库：
+2. 创建虚拟环境并安装依赖库：
 
     1. 若系统未安装 `python3-venv`，请先安装（以 Debian/Ubuntu 为例）：
 
@@ -132,13 +132,13 @@
     pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
     ```
 
-4. 配置 Token：
+3. 配置 Token：
 
     1. `nano task.sh` 编辑任务脚本
     2. 修改 `SKYLAND_TOKEN` 环境变量，将 `token1;token2;token3;` 替换为实际的 `token`
     3. 完成后按 `Ctrl+X` 保存并退出
 
-5. 添加任务脚本执行权限并手动测试运行：
+4. 添加任务脚本执行权限并手动测试运行：
 
     ```sh
     chmod +x task.sh && ./task.sh
@@ -146,7 +146,7 @@
 
     ~没有报错就算成功~
 
-6. 确认运行正常后再配置定时任务：
+5. 确认运行正常后再配置定时任务：
 
     `crontab -e`，添加如下内容：
 
