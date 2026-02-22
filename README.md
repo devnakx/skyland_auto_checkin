@@ -7,11 +7,10 @@
 
 ---
 
-**原项目**：https://github.com/sjtt2/endfield_auto_sign
-
-**原项目的原项目**：https://github.com/Zerolouis/skyland_auto_sign_qinglong
-
-**原项目的原项目的原项目（~受不了套娃了~）**：https://gitee.com/FancyCabbage/skyland-auto-sign
+**原项目**：
+- https://github.com/sjtt2/endfield_auto_sign
+- https://github.com/Zerolouis/skyland_auto_sign_qinglong
+- https://gitee.com/FancyCabbage/skyland-auto-sign
 
 ---
 
@@ -20,7 +19,7 @@
 此版本在原项目的基础上进行了全面重构，主要改进如下：
 
 ### 代码合并重构
-- 合并原项目（终末地签到）和原项目的原项目（森空岛签到）的代码
+- 合并 [终末地签到](https://github.com/sjtt2/endfield_auto_sign) 和 [森空岛签到](https://github.com/Zerolouis/skyland_auto_sign_qinglong) 的代码逻辑
 - 使用 `GAME_CONFIG` 字典配置不同游戏，方便后续扩展，实现统一签到入口
 - 目前支持同时为明日方舟和终末地进行签到
 
@@ -211,7 +210,7 @@
 7. 配置任务计划
 
     1. 在开始菜单搜索“任务计划程序”，打开
-    
+
         <img width="781" height="783" alt="image" src="https://github.com/user-attachments/assets/b35a542f-c77b-4fa0-94c1-520bb766b8f1" />
 
     2. 在右侧选择新建任务
