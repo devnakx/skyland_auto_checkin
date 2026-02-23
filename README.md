@@ -87,7 +87,6 @@
 
     如果需要配置多个账号，请在 `SKYLAND_TOKEN` 环境变量中使用 `;` 分隔多个 `token`
 
-
 3. 青龙面板创建订阅
 
     链接: `https://github.com/devnakx/skyland_auto_checkin.git`
@@ -154,6 +153,101 @@
     ```
 
     其中 `/path/to/skyland_auto_checkin` 请替换为实际项目路径
+
+### 在 Windows 中独立运行（使用 `任务计划程序` 配置定时任务）
+
+1. 下载安装 Python
+
+    https://www.python.org/ftp/python/3.14.3/python-3.14.3-amd64.exe
+
+    安装中一定要勾选添加环境变量
+
+    <img width="664" height="426" alt="image" src="https://github.com/user-attachments/assets/59235f0c-796b-41c7-abdf-eaad652e017e" />
+
+2. 下载完整源码文件
+
+    <img width="415" height="364" alt="image" src="https://github.com/user-attachments/assets/e406501c-477d-49c2-91fd-3826bfab20ad" />
+
+3. 解压压缩包中的 `main.py`、`requirements.txt`、`task.bat`
+
+4. 在解压后的文件夹打开终端，并安装依赖
+
+    在文件夹路径输入 `cmd`，回车，即可打开
+
+    <img width="704" height="233" alt="image" src="https://github.com/user-attachments/assets/6ee0024f-efd0-4865-aa76-3b1181def6a9" />
+
+    输入命令进行依赖安装
+
+    ```cmd
+    pip install -r requirements.txt
+    ```
+
+    等待依赖安装完成
+
+5. 编辑 `task.bat`，填写 `token`
+
+    修改 `SKYLAND_TOKEN` 环境变量，将**引号**内 `token1;token2;token3;` 替换为实际的 `token`
+
+    <img width="753" height="419" alt="image" src="https://github.com/user-attachments/assets/4be53f9e-8979-464a-bf1b-bd4d2f33d157" />
+
+    <img width="476" height="354" alt="image" src="https://github.com/user-attachments/assets/fa1c9149-99d8-47aa-867b-a7b7c94a9865" />
+
+6. 手动执行一次确保 `token` 配置正确
+
+    在刚才安装依赖的 cmd 窗口执行
+
+    ```cmd
+    .\task.bat
+    ```
+
+    看到提示账号签到成功即可
+
+7. 配置任务计划
+
+    1. 在开始菜单搜索 `任务计划程序`，打开
+
+        <img width="781" height="783" alt="image" src="https://github.com/user-attachments/assets/b35a542f-c77b-4fa0-94c1-520bb766b8f1" />
+
+    2. 在右侧选择新建任务
+
+        <img width="394" height="297" alt="image" src="https://github.com/user-attachments/assets/163d5fd0-8674-4e49-81e1-caba4d0744cc" />
+
+    3. 常规
+
+        <img width="632" height="540" alt="image" src="https://github.com/user-attachments/assets/6bc81879-bb1c-42d4-9437-a9dc50ec0dfb" />
+
+    4. 触发器，选择新建，根据自己想要执行的时间进行配置
+
+        <img width="877" height="536" alt="image" src="https://github.com/user-attachments/assets/fdd07472-8ffe-466b-a7b7-f5ee45efb756" />
+
+    5.  操作，选择新建，然后浏览，选择自己前边解压出来的 `task.bat`
+
+        <img width="1034" height="508" alt="image" src="https://github.com/user-attachments/assets/aa54c17e-76da-4c9c-bb9d-b5cae95e4dd6" />
+
+    6. 点击确定进行保存，在弹出的框中输入电脑开机密码，授予权限
+
+> [!TIP]
+> 使用计划任务运行需要保证电脑处于开机状态，建议部署到 Windows 服务器或自己平时不关机的二奶机
+
+### 接入 MAA 或 MaaEnd，在每日前进行自动签到
+
+1. 完成上述 Windows 部署的 1-6 步
+
+2. 打开 MAA 或 MaaEnd，两个配置一个即可，不需要重复配置
+
+    #### MaaEnd
+
+    在你设置的每日任务最前边添加前置程序即可
+
+    <img width="1002" height="620" alt="image" src="https://github.com/user-attachments/assets/38f08daf-5340-43a9-af1b-78fe4dafcb21" />
+
+    <img width="1107" height="356" alt="image" src="https://github.com/user-attachments/assets/1b02acd1-bb32-4cfd-b623-6f3bc262561d" />
+
+    #### MAA
+
+    在设置-运行设置-开始前脚本，填写 `task.bat` 的路径（若不知道怎么填写，可对着 `task.bat` 文件右键，选择复制文件路径，填入）
+
+    <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/8ba2bdb8-768e-40d3-b54d-76eaf8edb7c3" />
 
 > [!TIP]
 > 独立运行时不支持下面青龙面板的通知推送功能
